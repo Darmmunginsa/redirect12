@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>กำลังเปลี่ยนเส้นทาง...</title>
+  <script>
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/Line/i.test(ua) && /Android/i.test(ua)) {
+      // 👉 ถ้าเป็น LINE บน Android → เปิด Chrome โดยใช้ intent
+      window.location = "intent://www.dongroups.com/home#Intent;scheme=https;package=com.android.chrome;end;";
+    } else if (/Line/i.test(ua) && /iPhone|iPad|iPod/i.test(ua)) {
+      // 👉 ถ้าเป็น LINE บน iOS → แจ้งให้เปิด Safari ด้วยตัวเอง
+      document.write('<p style="text-align:center;font-size:18px;margin-top:50px;">📱 กรุณาเปิดหน้านี้ใน Safari หรือ Chrome โดยกดที่ ⋯ ด้านขวาบน แล้วเลือก "เปิดในเบราว์เซอร์"</p>');
+    } else {
+      // 👉 ถ้าไม่ใช่ LINE หรือเป็นเบราว์เซอร์อื่น → ไปหน้า form.html ปกติ
+      window.location.href = "https://www.dongroups.com/home";
+    }
+  </script>
+</head>
+<body></body>
+</html>
